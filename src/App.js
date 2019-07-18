@@ -5,7 +5,8 @@ import seedPalettes from './seedPalettes';
 function App() {
   return (
     <div>
-      <Palette {...seedPalettes[3]}/>
+      {/* generates a Palette using only the first element of the seedPalettes array */}
+      <Palette {...seedPalettes[2]}/>
     </div>
   );
 }
