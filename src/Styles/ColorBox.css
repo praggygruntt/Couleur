@@ -5,4 +5,58 @@
     display: inline-block;
     position: relative;
     cursor: pointer;
+    /* fixes a bug wherein after adding the .see-more styling, a tiny white line appeared at the bottom of each .ColorBox*/
+    margin-bottom: -3.5px;
+    
+}
+.ColorBox:hover .copy-button {
+    opacity: 1;
+    transition: 0.5s;
+}
+.copy-button {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -15px;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    font-size: 1rem;
+    line-height: 30px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.colorbox-content {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.see-more{
+    background: rgba(255, 255, 255, .3);
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border: none;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: white;
 }
