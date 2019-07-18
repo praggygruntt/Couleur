@@ -6,8 +6,8 @@ import '../Styles/Palette.css';
 export default class Palette extends Component {
     render() {
         // CREATE AND STORE ALL COLORBOXES IN A VARIABLE
-        const colorBoxes = this.props.colors.map(color => (
-            <ColorBox background={color.color} name={color.name} />
+        const colorBoxes = this.props.palette.colors[500].map(color => (
+            <ColorBox background={color.hex} name={color.name} />
         ));
         return (
             <div className="Palette">

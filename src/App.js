@@ -4,11 +4,10 @@ import seedPalettes from './seedPalettes';
 import {generateFullPalette} from './colorHelpers';
 
 function App() {
-  console.log(generateFullPalette(seedPalettes[4]));
   return (
     <div>
       {/* generates a Palette using only the first element of the seedPalettes array */}
-      <Palette {...seedPalettes[2]}/>
+      <Palette palette={generateFullPalette(seedPalettes[4])} />
     </div>
   );
 }
