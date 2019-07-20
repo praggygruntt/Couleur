@@ -4,6 +4,8 @@ import 'rc-slider/assets/index.css';
 import '../Styles/Navbar.css'
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Snackbar from '@material-ui/core/Snackbar';
+import CloseIcon from "@material-ui/icons/Close";
 
 export default class Navbar extends Component {
     constructor(props) {
@@ -44,7 +46,6 @@ export default class Navbar extends Component {
                         <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1.0)</MenuItem>
                     </Select>
                 </div>
-                
             </header>
         )
     }
