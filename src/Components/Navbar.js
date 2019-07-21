@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from '@material-ui/core/Slide';
+import {Link} from 'react-router-dom';
 
 
 function SlideTransition(props) {
@@ -37,7 +38,7 @@ export default class Navbar extends Component {
         return(
             <header className="Navbar">
                 <div className="logo">
-                    <a href="#">Couleur</a>
+                    <Link to="/">COULEUR</Link>
                 </div>
                 <div className="slider-container">
                     <span>Level: {level}</span>
