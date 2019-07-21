@@ -54,6 +54,7 @@
     margin-top: -3px;
 }
 .color-type-selector-container {
-    display: flex;
-    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 10px;
 }
+

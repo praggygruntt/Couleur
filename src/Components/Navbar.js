@@ -5,23 +5,35 @@ import '../Styles/Navbar.css'
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from "@material-ui/icons/Close";
+import Slide from '@material-ui/core/Slide';
+
+
+function SlideTransition(props) {
+    return <Slide {...props} direction="right" />;
+  }
 
 export default class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            colorFormat: 'hex'
+            colorFormat: 'hex',
+            snackbarIsOpened: false
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleFormatChange = this.handleFormatChange.bind(this);
+        this.closeSnackbar = this.closeSnackbar.bind(this);
     }
-    handleChange(event) {
-        this.setState({colorFormat: event.target.value});
+    handleFormatChange(event) {
+        this.setState({colorFormat: event.target.value, snackbarIsOpened: true});
         this.props.handleChange(event.target.value);
+    }
+    closeSnackbar() {
+        this.setState({snackbarIsOpened: false});
     }
     render() {
         const {level, changeLevel} = this.props;
-        const {colorFormat} = this.state;
+        const {colorFormat, snackbarIsOpened} = this.state;
         return(
             <header className="Navbar">
                 <div className="logo">
@@ -40,12 +52,28 @@ export default class Navbar extends Component {
                     </div>
                 </div>
                 <div className="color-type-selector-container">
-                    <Select onChange={this.handleChange} value={colorFormat}>
+                    <Select onChange={this.handleFormatChange} value={colorFormat}>
                         <MenuItem value="hex">HEX - #FFFFFF</MenuItem>
                         <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
                         <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1.0)</MenuItem>
                     </Select>
                 </div>
+                <Snackbar
+                    TransitionComponent={SlideTransition} 
+                    anchorOrigin={{vertical: "bottom", horizontal: "left"}}
+                    open={snackbarIsOpened}
+                    onClose={this.closeSnackbar}
+                    autoHideDuration={3000}
+                    message={<span id="message-id">{`Format Changed - [${colorFormat.toUpperCase()}]`}</span>}
+                    ContentProps={{
+                        'aria-describedby': 'message-id'
+                    }}
+                    action={[
+                        <IconButton onClick={this.closeSnackbar} color="inherit" key="close" aria-label="close">
+                            <CloseIcon />
+                        </IconButton>
+                    ]}>
+                </Snackbar>
             </header>
         )
     }
