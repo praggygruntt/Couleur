@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/styles';
 const styles = {
     root: {
         background: "pink",
-        height: "100%",
+        height: "100vh",
         alignItems: 'flex-start',
         justifyContent: 'center',
         display: "flex"
