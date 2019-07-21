@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {/* generates a Palette using only the first element of the seedPalettes array */}
-      <Palette palette={generateFullPalette(seedPalettes[4])} />
+      <Palette palette={generateFullPalette(seedPalettes[8])} />
     </div>
   );
 }
