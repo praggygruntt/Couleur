@@ -29,7 +29,11 @@ class App extends Component {
               />
         <Route
           exact path="/palette/:paletteId/:colorId" 
-          render={() => <SinglePalette />}
+          render={routeProps => 
+            <SinglePalette
+              colorId={routeProps.match.params.colorId} 
+              palette={generateFullPalette(this.findPalette(routeProps.match.params.paletteId))}/>}
+              />
           />
       </Switch>
     )
