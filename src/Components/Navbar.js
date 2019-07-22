@@ -40,7 +40,8 @@ export default class Navbar extends Component {
                 <div className="logo">
                     <Link to="/">COULEUR</Link>
                 </div>
-                <div className="slider-container">
+                {this.props.showSlider && (
+                    <div className="slider-container">
                     <span>Level: {level}</span>
                     <div className="slider">
                         <Slider 
@@ -52,6 +53,7 @@ export default class Navbar extends Component {
                             />
                     </div>
                 </div>
+                )}
                 <div className="color-type-selector-container">
                     <Select onChange={this.handleFormatChange} value={colorFormat}>
                         <MenuItem value="hex">HEX - #FFFFFF</MenuItem>
