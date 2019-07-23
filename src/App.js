@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import Palette from './Components/Palette';
 import PaletteList from './Components/PaletteList';
 import SinglePalette from './Components/SinglePalette';
+import NewPaletteForm from './Components/NewPaletteForm';
 import seedPalettes from './seedPalettes';
 import {generateFullPalette} from './colorHelpers';
 
@@ -35,6 +36,10 @@ class App extends Component {
               palette={generateFullPalette(this.findPalette(routeProps.match.params.paletteId))}/>}
               />
           />
+        <Route 
+          exact path="/new-palette"
+          render={() => <NewPaletteForm />}
+        />
       </Switch>
     )
   }
