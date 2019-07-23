@@ -6,14 +6,20 @@
     position: relative;
     cursor: pointer;
     /* fixes a bug wherein after adding the .see-more styling, a tiny white line appeared at the bottom of each .ColorBox*/
-    margin-bottom: -3.5px;
-    
+    margin-bottom: -3.5px;  
+}
+.SingleColorPalette .ColorBox {
+    height: 50%;
+}
+.ColorBox.go-back {
+    background: black;
+
 }
 .ColorBox:hover .copy-button {
     opacity: 1;
     transition: 0.5s;
 }
-.copy-button {
+.copy-button, .go-back-button {
     width: 100px;
     height: 30px;
     position: absolute;
@@ -30,8 +36,11 @@
     color: white;
     text-transform: uppercase;
     border: none;
-    opacity: 0;
     cursor: pointer;
+    text-decoration: none;
+}
+.copy-button {
+    opacity: 0;
 }
 
 .colorbox-content {

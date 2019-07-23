@@ -31,13 +31,14 @@ export default class ColorBox extends Component {
                             <span>{name}</span>
                             </div>
                         <button className="copy-button">Copy</button>
+                    </div>
                         {showLink && (
                             <Link to={`/palette/${paletteId}/${id}`} onClick={(event) => event.stopPropagation()}>
                             <span className="see-more">More</span>
                             </Link>
                         )}
-                        </div>
-                    </div>
+                        
+                </div>
                 </CopyToClipboard>
         )
     }

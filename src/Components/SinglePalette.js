@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
+import {Link} from 'react-router-dom';
 
 export default class SinglePalette extends Component {
     constructor(props) {
@@ -26,12 +27,15 @@ export default class SinglePalette extends Component {
     }
     render() {
         const colorBoxes = this._shades.map(color => 
-            <ColorBox key={color.id} name={color.name} background={color[this.state.format]} showLink={false}/>) 
+            <ColorBox key={color.name} name={color.name} background={color[this.state.format]} showLink={false}/>) 
         return(
-            <div className="palette">
+            <div className="SingleColorPalette palette">
                 <Navbar showSlider={false} handleChange={this.changeFormat}/>
                 <div className="Palette-colors">
                     {colorBoxes}
+                    <div className="go-back ColorBox">
+                        <Link to={`/palette/${this.props.palette.id}`} className="go-back-button">GO BACK</Link>
+                    </div>
                 </div>
                 <footer className="palette-footer">
                     {this.props.palette.paletteName}
