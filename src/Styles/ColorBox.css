@@ -43,6 +43,12 @@
     opacity: 0;
 }
 
+span.light-copy {
+    color: white;
+}
+span.dark-copy, button.dark-copy {
+    color: black;
+}
 .colorbox-content {
     position: absolute;
     padding: 10px;
@@ -98,6 +104,10 @@
     opacity: 0;
     color: white;
     flex-direction: column;
+}
+
+.dark-copy-message {
+    color: black;
 }
 
 .copy-message.show {
