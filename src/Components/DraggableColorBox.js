@@ -44,8 +44,8 @@ function DraggableColorBox(props) {
     return(
         <div className={classes.root} style={{backgroundColor: props.color}}>
             <div className={classes.boxContent}>
-                <span className={luminance < .1 && classes.lightCopy}>{props.name}</span>
-                <Delete className={classes.deleteIcon}></Delete>
+                <span className={luminance < .1 ? classes.lightCopy : undefined}>{props.name}</span>
+                <Delete className={classes.deleteIcon} onClick={() => props.handleClick(props.name)}></Delete>
             </div>
         </div>
     )
