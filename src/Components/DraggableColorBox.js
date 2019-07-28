@@ -12,8 +12,9 @@ const styles = {
         display: "inline-block",
         cursor: "pointer",
         "&:hover svg": {
-            color: "white"
-        }   
+            color: "white",
+            opacity: "1"
+        },  
     },
     boxContent: {
         display: "flex",

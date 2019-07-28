@@ -11,10 +11,11 @@ import IconButton from '@material-ui/core/IconButton';
 import AddBox from '@material-ui/icons/AddBox';
 import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import {ChromePicker} from 'react-color';
+import {ChromePicker} from 'react-color';   
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList';
 import {arrayMove} from 'react-sortable-hoc';
+
 
 const drawerWidth = 350;
 
@@ -82,7 +83,7 @@ class NewPaletteForm extends React.Component {
         this.state = {
             open: true,
             currentColor: "teal",
-            colors: [{color: "blue", name: "Blue"}],
+            colors: [...this.props.palettes[0].colors],
             newColorName: "",
             newPaletteName: ""
         };
