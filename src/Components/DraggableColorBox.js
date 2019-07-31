@@ -11,6 +11,9 @@ const styles = {
         margin: "0 auto",
         display: "inline-block",
         cursor: "pointer",
+        "&:hover": {
+            cursor: "all-scroll"
+        },
         "&:hover svg": {
             color: "white",
             opacity: "1"
@@ -32,7 +35,8 @@ const styles = {
         color: "rgba(0,0,0,.5)",
         transition: ".4s ease",
         "&:hover": {
-            transform: "scale(1.3)"
+            transform: "scale(1.3)",
+            cursor: "pointer"
         }
     },
     lightCopy: {
