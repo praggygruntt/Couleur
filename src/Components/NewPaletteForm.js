@@ -17,6 +17,7 @@ import DraggableColorList from './DraggableColorList';
 import {arrayMove} from 'react-sortable-hoc';
 import {Link} from 'react-router-dom';
 import NewPaletteFormNav from './NewPaletteFormNav';
+import chroma from 'chroma-js';
 
 const drawerWidth = 350;
 
@@ -54,6 +55,8 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    justifyContent: "center",
+    display: "flex"
   },
   drawerHeader: {
     display: 'flex',
@@ -64,7 +67,6 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -79,6 +81,44 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "90%",
+    alignSelf: "center",
+    height: "100%"
+  },
+  buttons: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: ".5rem"
+  },
+  colorPicker: {
+    width: "100% !important",
+    marginTop: "1rem"
+  },
+  addColorBtn: {
+    fontSize: "2rem",
+    color: "white",
+    textShadow: "2px 1px black",
+    width: "100%",
+    marginTop: "1rem",
+    "&:hover": {
+    }
+  },
+  colorInput: {
+    width: "100%",
+    margin: "1rem"
+  },
+  colorInputForm: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%"
+  }
 });
 
 class NewPaletteForm extends React.Component {
@@ -188,36 +228,42 @@ class NewPaletteForm extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <Typography variant="h4">Design Your Palette</Typography>
-          <div>
-            <Button variant="contained" color="secondary" onClick={this.clearPalette}>Clear Palette</Button>
-            <Button disabled={this.state.colors.length >= this.props.maxColors} variant="contained" color="primary" onClick={this.randomColor}>
-                {this.state.colors.length >= this.props.maxColors ? "Palette Full" : "Random Color"}
-            </Button>
+          <div className={classes.container}>
+            <Typography variant="h4">Design Your Palette</Typography>
+            <div className={classes.buttons}>
+              <Button variant="contained" color="secondary" onClick={this.clearPalette}>Clear Palette</Button>
+              <Button disabled={this.state.colors.length >= this.props.maxColors} variant="contained" color="primary" onClick={this.randomColor}>
+                  {this.state.colors.length >= this.props.maxColors ? "Palette Full" : "Random Color"}
+              </Button>
+              </div>
+            <ChromePicker className={classes.colorPicker} color={this.state.currentColor} onChangeComplete={(newColor) => this.setState({currentColor: newColor.hex})}/>
+            <ValidatorForm
+              ref="form"
+              onSubmit={this.addNewColor}
+              onError={errors => console.log(errors)}
+              className={classes.colorInputForm}
+              >
+                <TextValidator 
+                  variant="filled"
+                  className={classes.colorInput}
+                  label="Color Name"
+                  onChange={this.handleChange}
+                  name="newColorName"
+                  value={this.state.newColorName}
+                  validators={['required', 'isColorNameUnique', 'isColorUnique']}
+                  errorMessages={['Must give your color a name!', "Color name must be unique!", "Color already used!"]}
+                />
+              <Button
+                  className={classes.addColorBtn}
+                  type="submit" 
+                  variant="contained"
+                  style={this.state.colors.length < this.props.maxColors ? {backgroundColor: this.state.currentColor} : {backgroundColor: "gray"}}
+                  disabled={this.state.colors.length >= this.props.maxColors}
+              >
+                  {this.state.colors.length >= this.props.maxColors ? "Palette Full" : "Add Color"}
+              </Button>
+              </ValidatorForm>
             </div>
-          <ChromePicker color={this.state.currentColor} onChangeComplete={(newColor) => this.setState({currentColor: newColor.hex})}/>
-          <ValidatorForm
-            ref="form"
-            onSubmit={this.addNewColor}
-            onError={errors => console.log(errors)}
-            >
-              <TextValidator 
-                label="Name your color"
-                onChange={this.handleChange}
-                name="newColorName"
-                value={this.state.newColorName}
-                validators={['required', 'isColorNameUnique', 'isColorUnique']}
-                errorMessages={['Must give your color a name!', "Color name must be unique!", "Color already used!"]}
-              />
-            <Button
-                type="submit" 
-                variant="contained"
-                style={{backgroundColor: this.state.currentColor}}
-                disabled={this.state.colors.length >= this.props.maxColors}
-            >
-                {this.state.colors.length >= this.props.maxColors ? "Palette Full" : "Add Color"}
-            </Button>
-            </ValidatorForm>
         </Drawer>
         <main
           className={classNames(classes.content, {
