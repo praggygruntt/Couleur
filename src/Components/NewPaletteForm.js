@@ -18,18 +18,20 @@ import {arrayMove} from 'react-sortable-hoc';
 import {Link} from 'react-router-dom';
 import NewPaletteFormNav from './NewPaletteFormNav';
 
-
 const drawerWidth = 350;
 
 const styles = theme => ({
   root: {
-    display: 'flex',
+    display: 'flex'
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: "64px"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
