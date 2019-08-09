@@ -9,7 +9,8 @@ const styles = {
         height: "100vh",
         alignItems: 'flex-start',
         justifyContent: 'center',
-        display: "flex"
+        display: "flex",
+        overflow: "scroll"
     },
     container: {
         width: "50%",
@@ -34,7 +35,8 @@ const styles = {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "5%"
+        gridGap: "5%",
+        padding: "20px"
     },
     title: {
         fontFamily: 'Permanent Marker, cursive',
