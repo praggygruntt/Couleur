@@ -8,6 +8,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {withStyles} from '@material-ui/styles';
+import {Picker} from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
 const styles = {
 };
@@ -39,7 +41,8 @@ class PaletteMetaForm extends Component {
         this.setState({open: true});
     };
     handleClose() {
-        this.setState({open: false})
+        this.setState({open: false});
+        this.props.hideForm();
     };
     render() {
         const {classes} = this.props;
@@ -51,16 +54,16 @@ class PaletteMetaForm extends Component {
                   <DialogContentText>
                    Give your snazzy new palette a <b>unique</b> name! Be creative with it!
                   </DialogContentText>
-                            <TextValidator
-                                margin="normal"
-                                name="newPaletteName"
-                                fullWidth
-                                value={this.state.newPaletteName}
-                                label="Palette Name"
-                                onChange={this.handleChange}
-                                validators={['required', 'isPaletteNameUnique']}
-                                errorMessages={['Must give your palette a name!', "Name already taken!"]}/>
-                            
+                    <TextValidator
+                        margin="normal"
+                        name="newPaletteName"
+                        fullWidth
+                        value={this.state.newPaletteName}
+                        label="Palette Name"
+                        onChange={this.handleChange}
+                        validators={['required', 'isPaletteNameUnique']}
+                        errorMessages={['Must give your palette a name!', "Name already taken!"]}/> 
+                    <Picker />          
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={this.handleClose} color="primary">
