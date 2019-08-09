@@ -18,7 +18,16 @@ const styles = theme => ({
     navBtns: {
         display: "flex",
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        margin: "1rem"
+    },
+    button: {
+        margin: "10px",
+        "& a":
+         {textDecoration: "none"}
+    },
+    link: {
+        textDecoration: "none"
     }
 });
 
@@ -26,10 +35,14 @@ class NewPaletteFormNav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newPaletteName: ""
+            newPaletteName: "",
+            formShowing: false
         };
+        this.showForm = this.showForm.bind(this);
     }
-    
+    showForm() {
+        this.setState({formShowing: true});
+    };
     render() {
         const {classes, open} = this.props;
         return (<div className={classes.root}>
@@ -52,12 +65,17 @@ class NewPaletteFormNav extends Component {
                         </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
-                            <PaletteMetaForm palettes={this.props.palettes} handleSubmit={this.props.handleSubmit}/>
-                            <Link to="/">
-                                <Button variant="contained" color="secondary">Go Back</Button>
-                                </Link>
+                        <Link to="/" className={classes.link}>
+                            <Button className={classes.button} variant="contained" color="secondary">
+                                Back
+                            </Button>
+                        </Link>
+                        <Button className={classes.button} variant="contained" color="primary" onClick={this.showForm}>
+                            Save
+                        </Button>
                         </div>
                 </AppBar>
+                {this.state.formShowing && <PaletteMetaForm palettes={this.props.palettes} handleSubmit={this.props.handleSubmit}/>}
         </div>)
     }
 };
