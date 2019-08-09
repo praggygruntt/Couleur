@@ -18,12 +18,14 @@ class PaletteMetaForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
+            stage: "form",
             newPaletteName: ""
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.showEmojiPicker = this.showEmojiPicker.bind(this);
+        this.savePalette = this.savePalette.bind(this);
     };
     componentDidMount() {
         ValidatorForm.addValidationRule('isPaletteNameUnique', value => 
@@ -36,6 +38,9 @@ class PaletteMetaForm extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+    };
+    showEmojiPicker() {
+        this.setState({stage: "emoji"})
     }
     handleClickOpen() {
         this.setState({open: true});
@@ -44,12 +49,23 @@ class PaletteMetaForm extends Component {
         this.setState({open: false});
         this.props.hideForm();
     };
+    savePalette(emoji) {
+        console.log(emoji);
+        this.props.handleSubmit({
+            paletteName: this.state.newPaletteName,
+            emoji: emoji.native
+        }); 
+    }
     render() {
         const {classes} = this.props;
         return (
-              <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+            <div>
+            <Dialog open={this.state.stage === "emoji"} onClose={this.handleClose} >
+                <Picker onSelect={this.savePalette} title={"Pick an Emoji!"}/>
+            </Dialog>
+              <Dialog open={this.state.stage === "form"} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Name Your Palette</DialogTitle>
-                <ValidatorForm onSubmit={() => this.props.handleSubmit(this.state.newPaletteName)} className={classes.form}>
+                <ValidatorForm onSubmit={this.showEmojiPicker} className={classes.form}>
                 <DialogContent>
                   <DialogContentText>
                    Give your snazzy new palette a <b>unique</b> name! Be creative with it!
@@ -62,8 +78,7 @@ class PaletteMetaForm extends Component {
                         label="Palette Name"
                         onChange={this.handleChange}
                         validators={['required', 'isPaletteNameUnique']}
-                        errorMessages={['Must give your palette a name!', "Name already taken!"]}/> 
-                    <Picker />          
+                        errorMessages={['Must give your palette a name!', "Name already taken!"]}/>        
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={this.handleClose} color="primary">
@@ -78,6 +93,7 @@ class PaletteMetaForm extends Component {
                 </DialogActions>
                 </ValidatorForm>
               </Dialog>
+              </div>
           );
         }
     }
