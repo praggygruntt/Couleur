@@ -127,10 +127,11 @@ class NewPaletteForm extends React.Component {
     }
     constructor(props) {
         super(props);
+        console.log(this.props.backupPalette);
         this.state = {
             open: true,
             currentColor: "teal",
-            colors: [...this.props.palettes[0].colors],
+            colors: this.props.backupPalette.colors,
             newColorName: ""
         };
         this.addNewColor = this.addNewColor.bind(this);
