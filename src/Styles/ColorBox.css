@@ -133,3 +133,19 @@ span.dark-copy, button.dark-copy {
     font-size: 2rem;
     font-weight: 100;
 }
+@media (max-width: 900px) {
+    .ColorBox {
+        width: 50%
+    }
+}  
+@media (max-width: 740px) {
+    .ColorBox {
+        height: 100px
+    }
+}
+@media (max-width: 500px) {
+    .ColorBox {
+        width: 100%;
+    }
+}
+

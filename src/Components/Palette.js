@@ -24,6 +24,14 @@ const styles = {
     emoji: {
         fontSize: "1.5rem",
         margin: "0 8px"
+    },
+    "@media all and (max-width: 740px)": {
+        footer: {
+            justifyContent: "center"
+        },
+        colors: {
+            height: "auto"
+        }
     }
 };
 
