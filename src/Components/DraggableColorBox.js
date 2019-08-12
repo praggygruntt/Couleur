@@ -17,7 +17,18 @@ const styles = {
         "&:hover svg": {
             color: "white",
             opacity: "1"
-        },  
+        },
+        "@media (max-width: 1100px)": {
+            width: "25%"
+        },
+        "@media (max-width: 900px)": {
+            width: "50%",
+            height: "10%"
+        },
+        "@media (max-width: 740px)": {
+            width: "100%",
+            height: "10%"
+        },
     },
     boxContent: {
         display: "flex",

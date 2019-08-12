@@ -7,19 +7,20 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AddBox from '@material-ui/icons/AddBox';
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {Link} from 'react-router-dom';
 import {withStyles} from '@material-ui/styles';
 import PaletteMetaForm from './PaletteMetaForm';
-
-const drawerWidth = 350;
 
 const styles = theme => ({
     navBtns: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        margin: "1rem"
+        margin: "10px",
+        "@media (max-width: 760px)": {
+            display: "flex",
+            justifyContent: 'space-around'
+        },
     },
     button: {
         margin: "10px",
@@ -28,6 +29,12 @@ const styles = theme => ({
     },
     link: {
         textDecoration: "none"
+    },
+    navTitle: {
+        textAlign: "center",
+        "@media (max-width: 400px)": {
+            display: "none"
+        }
     }
 });
 
@@ -64,7 +71,7 @@ class NewPaletteFormNav extends Component {
                     className={classNames(classes.menuButton, open && classes.hide)}>
                         <AddBox />
                         </IconButton>
-                    <Typography variant="h6" color="inherit" noWrap>
+                    <Typography variant="h6" color="inherit" noWrap className={classes.navTitle}>
                         Create A Palette
                         </Typography>
                     </Toolbar>

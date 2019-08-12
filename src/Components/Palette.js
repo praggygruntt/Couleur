@@ -30,7 +30,7 @@ const styles = {
             justifyContent: "center"
         },
         colors: {
-            height: "auto"
+            height: ""
         }
     }
 };

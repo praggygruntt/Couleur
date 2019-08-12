@@ -2,22 +2,16 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import AddBox from '@material-ui/icons/AddBox';
 import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import {ChromePicker} from 'react-color';   
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList';
 import {arrayMove} from 'react-sortable-hoc';
-import {Link} from 'react-router-dom';
 import NewPaletteFormNav from './NewPaletteFormNav';
-import chroma from 'chroma-js';
 
 const drawerWidth = 350;
 
@@ -32,7 +26,10 @@ const styles = theme => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
-    height: "64px"
+    "@media (max-width: 760px)": {
+      alignContent: 'center',
+      height: "auto"
+  },
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -41,6 +38,9 @@ const styles = theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    "@media (max-width: 740px)": {
+      width: `calc(100% - 250px)`
+  },
   },
   menuButton: {
     marginLeft: 12,
@@ -52,11 +52,17 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    "@media (max-width: 740px)": {
+      width: "100%"
+    }
   },
   drawerPaper: {
     width: drawerWidth,
     justifyContent: "center",
-    display: "flex"
+    display: "flex",
+    "@media (max-width: 740px)": {
+      width: "100%"
+    }
   },
   drawerHeader: {
     display: 'flex',
@@ -72,7 +78,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
-    height: "calc(100vh - 64px)"
+    height: "calc(100vh - 64px)",
+    "@media (max-width: 740px)": {
+      marginLeft: "-100vw"
+    }
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -118,18 +127,20 @@ const styles = theme => ({
     flexDirection: "column",
     alignItems: "center",
     width: "100%"
+  },
+  button: {
+    margin: "2px"
   }
 });
 
-class NewPaletteForm extends React.Component {
+class NewPaletteForm extends Component {
     static defaultProps = {
         maxColors: 20
     }
     constructor(props) {
         super(props);
-        console.log(this.props.backupPalette);
         this.state = {
-            open: true,
+            open: false,
             currentColor: "teal",
             colors: this.props.backupPalette.colors,
             newColorName: ""
@@ -204,7 +215,7 @@ class NewPaletteForm extends React.Component {
   }
 // ==========================================================================================================================
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     const { open } = this.state;
 
     return (
@@ -226,10 +237,10 @@ class NewPaletteForm extends React.Component {
           </div>
           <Divider />
           <div className={classes.container}>
-            <Typography variant="h4">Design Your Palette</Typography>
+            <Typography variant="h4" style={{textAlign: "center"}}>Design Your Palette</Typography>
             <div className={classes.buttons}>
-              <Button variant="contained" color="secondary" onClick={this.clearPalette}>Clear Palette</Button>
-              <Button disabled={this.state.colors.length >= this.props.maxColors} variant="contained" color="primary" onClick={this.randomColor}>
+              <Button variant="contained" color="secondary" onClick={this.clearPalette} className={classes.button}>Clear Palette</Button>
+              <Button className={classes.button} disabled={this.state.colors.length >= this.props.maxColors} variant="contained" color="primary" onClick={this.randomColor}>
                   {this.state.colors.length >= this.props.maxColors ? "Palette Full" : "Random Color"}
               </Button>
               </div>

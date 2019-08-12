@@ -1,0 +1,22 @@
+.palette-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+.palette-footer-emoji {
+    margin: auto 5px;
+}
+@media (max-width: 740px) {
+    .SingleColorPalette .color-type-selector-container {
+        margin: 5px;
+    }
+}
+@media (max-width: 900px) {
+    .SingleColorPalette .ColorBox {
+        height: 25%
+    }
+    .SingleColorPalette .Navbar {
+        height: 100px;
+    }
+}

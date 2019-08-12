@@ -5,3 +5,7 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+@media (max-width: 992px) {}
+@media (max-width: 768px) {}
+@media (max-width: 690px) {}

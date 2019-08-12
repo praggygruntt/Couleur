@@ -15,7 +15,10 @@ const styles = {
         },
         "&:hover svg": {
             opacity: "1"
-        }
+        },
+        "@media (max-width: 490px)": {
+            margin: "1rem"
+        },
     },
     colors: {
         backgroundColor: "#dae1e4",
@@ -58,7 +61,10 @@ const styles = {
         zIndex: "10",
         borderRadius: "2px",
         opacity: "0",
-        transition: "all .5s ease-in-out"
+        transition: "all .5s ease-in-out",
+        "@media (max-width: 767px)": {
+            opacity: "1"
+        },
     }
 };
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -10,8 +9,14 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {withStyles} from '@material-ui/styles';
 import {Picker} from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
+import '../Styles/PaletteMetaForm.css'; 
 
 const styles = {
+    dialog: {
+        "@media (max-width: 767px)": {
+            margin: "5px !important"
+        },
+    }
 };
 
 class PaletteMetaForm extends Component {
@@ -60,13 +65,13 @@ class PaletteMetaForm extends Component {
         const {classes} = this.props;
         return (
             <div>
-            <Dialog open={this.state.stage === "emoji"} onClose={this.handleClose} >
+            <Dialog className={classes.dialog} open={this.state.stage === "emoji"} onClose={this.handleClose} >
                 <Picker onSelect={this.savePalette} title={"Pick an Emoji!"}/>
             </Dialog>
-              <Dialog open={this.state.stage === "form"} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+              <Dialog className={classes.dialog} open={this.state.stage === "form"} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Name Your Palette</DialogTitle>
                 <ValidatorForm onSubmit={this.showEmojiPicker} className={classes.form}>
-                <DialogContent>
+                <DialogContent style={{margin: 0}}>
                   <DialogContentText>
                    Give your snazzy new palette a <b>unique</b> name! Be creative with it!
                   </DialogContentText>
