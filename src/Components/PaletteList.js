@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/styles';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import "../Styles/PaletteList.css";
+import { CSSTransition, TransitionGroup, Transition} from 'react-transition-group';
 
 const styles = {
     root: {
@@ -106,14 +107,18 @@ class PaletteList extends Component {
                         "contained">Create Palette</Button></Link>
                     </nav>
                     <div className={classes.palettes}>
-                        {palettes.map(palette => (
-                            <MiniPalette {...palette} 
-                                handleClick={()=>this.goToPalette(palette.id)}
-                                key={palette.id} 
-                                deletePalette={this.props.deletePalette}
-                                id={palette.id}
-                                />
-                        ))}
+                        <TransitionGroup component={null}>
+                            {palettes.map(palette => (
+                                <CSSTransition key={palette.id} timeout={500} classNames="item">
+                                    <MiniPalette {...palette} 
+                                        handleClick={()=>this.goToPalette(palette.id)}
+                                        key={palette.id} 
+                                        deletePalette={this.props.deletePalette}
+                                        id={palette.id}
+                                        />
+                                </CSSTransition>
+                            ))}
+                        </TransitionGroup>
                     </div>
                 </div>
             </div>
