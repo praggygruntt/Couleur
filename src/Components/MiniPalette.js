@@ -4,6 +4,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 const styles = {
     root: {
+        width: "30%",
+        marginBottom: "1rem",
         backgroundColor: "white",
         borderRadius: "5px",
         padding: "0.5rem",
@@ -16,8 +18,11 @@ const styles = {
         "&:hover svg": {
             opacity: "1"
         },
-        "@media (max-width: 490px)": {
-            margin: "1rem"
+        "@media (max-width: 696px)": {
+            width: "45%"
+        },
+        "@media (max-width: 425px)": {
+            width: "100%"
         },
     },
     colors: {

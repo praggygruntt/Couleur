@@ -20,7 +20,8 @@ const styles = {
         justifyContent: 'center',
         display: "flex",
         overflow: "scroll",
-        padding: "1rem"
+        padding: "1rem",
+        boxSizing: "border-box"
     },
     container: {
         width: "50%",
@@ -60,18 +61,14 @@ const styles = {
     palettes: {
         boxSizing: "border-box",
         width: "100%",
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "5%",
-        padding: "20px",
-        "@media (max-width: 900px)": {
-            gridTemplateColumns: "repeat(2, 47%)",
-            gridGap: "6%"
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        "@media (max-width: 425px)": {
+            
         },
-        "@media (max-width: 490px)": {
-            gridTemplateColumns: "repeat(1, 100%)",
-            gridGap: "0%",
-            margin: "0 auto",
+        "@media (max-width: 696px)": {
+            marginTop: "20px",
             padding: "0"
         },
     },
