@@ -55,11 +55,11 @@ class PaletteMetaForm extends Component {
         this.props.hideForm();
     };
     savePalette(emoji) {
-        console.log(emoji);
         this.props.handleSubmit({
             paletteName: this.state.newPaletteName,
             emoji: emoji.native
-        }); 
+        });
+        this.setState({stage: " "})
     }
     render() {
         const {classes} = this.props;
@@ -76,6 +76,7 @@ class PaletteMetaForm extends Component {
                             Give your snazzy new palette a <b>unique</b> name! Be creative with it!
                             </DialogContentText>
                                 <TextValidator
+                                    autoFocus
                                     margin="normal"
                                     name="newPaletteName"
                                     fullWidth

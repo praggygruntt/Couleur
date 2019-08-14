@@ -33,23 +33,19 @@
   }
 }
 
-.page {
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-}
 
-.slide-enter {
+
+.fade-enter {
   opacity: 0;
 }
-.slide-enter-active {
+.fade-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
-.slide-exit {
+.fade-exit {
   opacity: 1;
 }
-.slide-exit-active {
+.fade-exit-active {
   opacity: 0;
   transition: opacity 500ms ease-in;
 }
