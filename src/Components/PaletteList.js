@@ -4,11 +4,9 @@ import { withStyles } from '@material-ui/styles';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import "../Styles/PaletteList.css";
-import { CSSTransition, TransitionGroup, Transition} from 'react-transition-group';
+import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'

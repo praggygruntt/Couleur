@@ -12,6 +12,22 @@ import {withStyles} from '@material-ui/styles';
 import PaletteMetaForm from './PaletteMetaForm';
 
 const styles = theme => ({
+    root: {},
+      appBar: {},
+      appBarShift: {},
+      menuButton: {},
+      hide: {},
+      drawer: {},
+      drawerPaper: {},
+      drawerHeader: {},
+      content: {},
+      contentShift: {},
+      container: {},
+      buttons: {},
+      colorPicker: {},
+      addColorBtn: {},
+      colorInput: {},
+      colorInputForm: {},
     navBtns: {
         display: "flex",
         flexDirection: "row",

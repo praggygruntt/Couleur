@@ -32,7 +32,7 @@ export default class SinglePalette extends Component {
         return(
             <div className="SingleColorPalette palette">
                 <Navbar showSlider={false} handleChange={this.changeFormat}/>
-                <div className="Palette-colors" style={{height: "90%"}}>
+                <div className="Palette-colors">
                     {colorBoxes}
                     <div className="go-back ColorBox">
                         <Link to={`/palette/${this.props.palette.id}`} className="go-back-button">GO BACK</Link>

@@ -1,22 +1,32 @@
+.Palette-colors {
+    height: 89vh;
+}
 .palette-footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     font-weight: bold;
+    height: 5vh;
 }
 .palette-footer-emoji {
     margin: auto 5px;
 }
 @media (max-width: 740px) {
+    .SingleColorPalette .Palette-colors {
+        height: 85vh;
+    }
     .SingleColorPalette .color-type-selector-container {
         margin: 5px;
     }
 }
 @media (max-width: 900px) {
-    .SingleColorPalette .ColorBox {
-        height: 25%
+    .SingleColorPalette {
+        height: 100vh;
     }
     .SingleColorPalette .Navbar {
-        height: 100px;
+    }
+    .SingleColorPalette .palette-footer {
+        height: 5vh;
+        justify-content: center;
     }
 }

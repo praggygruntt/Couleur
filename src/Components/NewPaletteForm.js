@@ -65,6 +65,7 @@ const styles = theme => ({
     }
   },
   drawerHeader: {
+    height: "6vh",
     display: 'flex',
     alignItems: 'center',
     padding: '0 8px',
@@ -78,7 +79,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
-    height: "calc(100vh - 64px)",
+    height: "calc(100vh - 6vh)",
     "@media (max-width: 740px)": {
       marginLeft: "-100vw"
     }
@@ -215,12 +216,12 @@ class NewPaletteForm extends Component {
   }
 // ==========================================================================================================================
   render() {
-    const { classes } = this.props;
+    const { classes, palettes } = this.props;
     const { open } = this.state;
 
     return (
       <div className={classes.root}>
-        <NewPaletteFormNav palettes={this.props.palettes} open={open} classes={classes} handleSubmit={this.handleSubmit} handleDrawerOpen={this.handleDrawerOpen}/>
+        <NewPaletteFormNav palettes={palettes} open={open} classes={classes} handleSubmit={this.handleSubmit} handleDrawerOpen={this.handleDrawerOpen}/>
         <Drawer
           className={classes.drawer}
           variant="persistent"

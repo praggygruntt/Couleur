@@ -8,7 +8,8 @@ const styles = {
     Palette: {
         height: "100vh",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        overflow: "scroll"
     },
     colors: {
         height: "89vh"
@@ -27,10 +28,17 @@ const styles = {
     },
     "@media all and (max-width: 740px)": {
         footer: {
-            justifyContent: "center"
+            justifyContent: "center",
+            height: "5vh"
         },
         colors: {
-            height: ""
+            height: "75vh",
+            overflow: "scroll"
+        }
+    },
+    "@media (max-width: 900px)": {
+        colors: {
+            overflow: "scroll"
         }
     }
 };

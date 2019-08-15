@@ -6,6 +6,7 @@ import {SortableElement} from 'react-sortable-hoc';
 
 const styles = {
     root: {
+        boxSizing: "border-box",
         height: "25%",
         width: "20%",
         margin: "0 auto",
@@ -19,7 +20,8 @@ const styles = {
             opacity: "1"
         },
         "@media (max-width: 1100px)": {
-            width: "25%"
+            width: "25%",
+            height: "20%"
         },
         "@media (max-width: 900px)": {
             width: "50%",
@@ -27,7 +29,7 @@ const styles = {
         },
         "@media (max-width: 740px)": {
             width: "100%",
-            height: "10%"
+            height: "5%"
         },
     },
     boxContent: {
