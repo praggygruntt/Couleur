@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import {withStyles} from '@material-ui/styles';
 import '../Styles/Palette.css';
 
+
 const styles = {
     Palette: {
         height: "100vh",
