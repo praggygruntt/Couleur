@@ -42,7 +42,10 @@ const styles = {
         color: "black",
         letterSpacing: "1px",
         textTransform: "uppercase",
-        fontSize: "12px"
+        fontSize: "12px",
+        "@media (max-width: 740px)": {
+            alignItems: "center"
+        }
     },
     deleteIcon: {
         color: "rgba(0,0,0,.5)",
