@@ -17,19 +17,21 @@ const drawerWidth = 350;
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    height: "100%"
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    minHeight: "64px !important",
     flexDirection: "row",
     justifyContent: "space-between",
     "@media (max-width: 760px)": {
       alignContent: 'center',
-      height: "auto"
-  },
+      // height: "auto"
+    },
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -53,7 +55,8 @@ const styles = theme => ({
     width: drawerWidth,
     flexShrink: 0,
     "@media (max-width: 740px)": {
-      width: "100%"
+      width: "100%",
+      
     }
   },
   drawerPaper: {
@@ -65,7 +68,7 @@ const styles = theme => ({
     }
   },
   drawerHeader: {
-    height: "6vh",
+    height: "64px",
     display: 'flex',
     alignItems: 'center',
     padding: '0 8px',
@@ -79,7 +82,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
-    height: "calc(100vh - 6vh)",
+    // height: "calc(100vh - 64px)",
     "@media (max-width: 740px)": {
       marginLeft: "-100vw"
     }
@@ -98,7 +101,10 @@ const styles = theme => ({
     alignItems: "center",
     width: "90%",
     alignSelf: "center",
-    height: "100%"
+    height: "100%",
+    "@media (max-width: 740px)": {
+      padding: "1rem"
+    }
   },
   buttons: {
     width: "100%",
