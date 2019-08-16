@@ -254,6 +254,7 @@ class NewPaletteForm extends Component {
               </div>
             <ChromePicker className={classes.colorPicker} color={this.state.currentColor} onChangeComplete={(newColor) => this.setState({currentColor: newColor.hex})}/>
             <ValidatorForm
+              instantValidate={false}
               ref="form"
               onSubmit={this.addNewColor}
               onError={errors => console.log(errors)}
