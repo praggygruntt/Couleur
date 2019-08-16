@@ -85,6 +85,12 @@ class App extends Component {
                     exact path="/new-palette"
                     render={(routeProps) => <Page location={location.key}><NewPaletteForm {...routeProps} savePalette={this.savePalette} palettes={this.state.palettes} backupPalette={seedPalettes[0]}/></Page>}
                   />
+                  <Route 
+                    render={(routeProps) => 
+                      <Page location={location.key}>
+                      <PaletteList 
+                        palettes={this.state.palettes} deletePalette={this.deletePalette} {...routeProps}/></Page>}
+                    />
                 </Switch>
                 </CSSTransition>
               </TransitionGroup>
