@@ -9,6 +9,7 @@ import AddBox from '@material-ui/icons/AddBox';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import {withStyles} from '@material-ui/styles';
+
 import PaletteMetaForm from './PaletteMetaForm';
 
 const styles = theme => ({

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import chroma from 'chroma-js';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Link} from 'react-router-dom';
+
 import '../Styles/ColorBox.css';
 
 export default class ColorBox extends Component {

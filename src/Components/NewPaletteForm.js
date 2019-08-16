@@ -9,8 +9,9 @@ import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import {ChromePicker} from 'react-color';   
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import arrayMove from 'array-move';
+
 import DraggableColorList from './DraggableColorList';
-import {arrayMove} from 'react-sortable-hoc';
 import NewPaletteFormNav from './NewPaletteFormNav';
 
 const drawerWidth = 350;

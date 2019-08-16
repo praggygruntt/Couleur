@@ -1,7 +1,9 @@
 import React from 'react';
 import {SortableContainer} from 'react-sortable-hoc';
-import DraggableColorBox from './DraggableColorBox';
 import {withStyles} from "@material-ui/styles";
+
+import DraggableColorBox from './DraggableColorBox';
+
 const styles = {
     root: {
         height: `calc(100% - 64px)`,

@@ -4,8 +4,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 const styles = {
     root: {
+        boxSizing: "border-box",
         width: "30%",
-        marginBottom: "1rem",
+        margin: "10px",
         backgroundColor: "white",
         borderRadius: "5px",
         padding: "0.5rem",

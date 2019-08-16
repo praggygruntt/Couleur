@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {withStyles} from '@material-ui/styles';
+
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
-import {withStyles} from '@material-ui/styles';
+
 import '../Styles/Palette.css';
 
 
