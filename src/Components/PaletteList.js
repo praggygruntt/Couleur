@@ -61,7 +61,7 @@ const styles = {
         width: "100%",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         "@media (max-width: 425px)": {
             
         },
@@ -81,7 +81,6 @@ const styles = {
     newPaletteButton: {
         textDecoration: "none",
         color: "white",
-        margin: "10px",
         "& button": {
             textDecoration: "none",
             backgroundColor: "green",
@@ -116,6 +115,7 @@ class PaletteList extends Component {
         this.openDialog = this.openDialog.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.goToPalette = this.goToPalette.bind(this);
     }
     openDialog(id) {
         this.setState({open: true, deletingID: id});
@@ -144,10 +144,10 @@ class PaletteList extends Component {
                         <TransitionGroup component={null}>
                             {palettes.map(palette => (
                                 <CSSTransition key={palette.id} timeout={500} classNames="item">
-                                    <MiniPalette {...palette} 
-                                        handleClick={()=>this.goToPalette(palette.id)}
-                                        key={palette.id} 
-                                        // deletePalette={this.props.deletePalette}
+                                    <MiniPalette 
+                                        {...palette} 
+                                        handleClick={this.goToPalette}
+                                        key={palette.id}
                                         openDialog={this.openDialog}
                                         id={palette.id}
                                         />
